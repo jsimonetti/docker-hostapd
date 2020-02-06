@@ -17,6 +17,7 @@ true ${HW_MODE:=g}
 true ${DRIVER:=nl80211}
 true ${HT_CAPAB:=[HT40-][SHORT-GI-20][SHORT-GI-40]}
 true ${MODE:=host}
+true ${KEYMGT:=WPA-PSK}
 
 # Attach interface to container in guest mode
 if [ "$MODE" == "guest"  ]; then
@@ -45,7 +46,7 @@ hw_mode=${HW_MODE}
 channel=${CHANNEL}
 wpa=2
 wpa_passphrase=${WPA_PASSPHRASE}
-wpa_key_mgmt=WPA-PSK
+wpa_key_mgmt=${KEYMGT}
 # TKIP is no secure anymore
 #wpa_pairwise=TKIP CCMP
 wpa_pairwise=CCMP
