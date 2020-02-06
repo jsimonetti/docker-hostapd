@@ -40,13 +40,13 @@ country ES: DFS-ETSI
 * Using host networking:
 
 ```
-sudo docker run -d -t -e INTERFACE=wlan0 --net host --privileged offlinehacker/docker-ap
+docker run --rm -it --name hostapd -e WPA_PASSPHRASE="passw0rd" -e INTERFACE=wl-ap --net host --privileged jsimonetti/hostapd:latest
 ```
 
 * Using network interface reattaching:
 
 ```
-sudo docker run -d -t -e INTERFACE=wlan0 -v /var/run/docker.sock:/var/run/docker.sock --privileged offlinehacker/docker-ap
+sudo docker run -d -t -e INTERFACE=wl-ap -v /var/run/docker.sock:/var/run/docker.sock --privileged offlinehacker/docker-ap
 ```
 
 This mode requires access to docker socket, so it can run a short lived
